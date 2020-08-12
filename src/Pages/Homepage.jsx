@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import ListPhotos from '../components/ListPhotos';
-import Axios from '../utils/Api';
+// import Axios from '../utils/Api';
 import SearchBar from '../components/SearchBar';
 import data from './dummydata.json';
-import NavBar from '../components/NavBar';
 
 const Container = styled.div`
     

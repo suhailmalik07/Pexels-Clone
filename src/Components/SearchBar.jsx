@@ -5,9 +5,7 @@ import { AppContext } from "../contexts/AppContextProvider";
 const Container = styled.div`
     display: flex;
     align-items: center;
-    width: max-content;
     position: relative;
-    margin: auto;
     width: 100%;
 `
 
