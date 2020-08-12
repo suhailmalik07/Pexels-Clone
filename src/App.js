@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Homepage from './Pages/Homepage';
 import PhotosPage from './Pages/PhotosPage';
+import NavBar from './components/NavBar';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class App extends React.Component {
     const { page } = this.state
     return (
       <div>
+        <NavBar />
         {page === "homePage" ? <Homepage switchPage={this.switchPage} /> : <PhotosPage />}
       </div>
     );

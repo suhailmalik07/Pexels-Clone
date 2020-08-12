@@ -37,7 +37,6 @@ export default class Homepage extends React.Component {
         const { data } = this.state
         return (
             <>
-                <NavBar />
                 <Container>
 
                     <ListPhotos data={data} />
