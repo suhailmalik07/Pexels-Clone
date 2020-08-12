@@ -8,7 +8,7 @@ export default class AppContextProvider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            page: "homePage",
+            page: "photos",
             query: ""
         }
     }

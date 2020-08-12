@@ -6,11 +6,12 @@ import styled from 'styled-components';
 
 
 const Container = styled.div`
-    border: 1px solid black;
-    background: rgb(35, 42, 52) ;
     position: sticky;
     top: 0;
-    padding: 0.2rem 1.5rem;
+    z-index: 99;
+
+    background: #232a34;
+    padding: 0rem 1rem;
     box-sizing: border-box;
 
     display: flex;
@@ -18,14 +19,15 @@ const Container = styled.div`
     justify-content: space-between;
 
     width: 100%;
+    min-height: 66px;
 
     div:first-child{
-        flex: 3;
+        flex: 1;
     }
-    div:last-child{
+    /* div:last-child{
         text-align: right;
         flex: 2;
-    }
+    } */
 `
 
 const IconSearchContatiner = styled.div`
@@ -40,13 +42,13 @@ export default function NavBar({ handleSearch }) {
             <Container>
                 <IconSearchContatiner>
                     <PexelIcon />
-                    <NavLink name="pexel" />
-                    <SearchBar style={{ padding: "14px 17px", }} />
+                    <NavLink name="Pexel" style={{ fontWeight: 600, fontSize: "19px" }} />
+                    <SearchBar style={{ padding: "14px 17px", marginLeft: "1rem" }} />
                 </IconSearchContatiner>
-                <div>
+                <div style={{marginLeft: "1rem"}}>
                     <NavLink name="Explore" />
                     <NavLink name="License" />
-                    <NavLink name="upload" />
+                    <NavLink name="Upload" />
                 </div>
             </Container>
         </>

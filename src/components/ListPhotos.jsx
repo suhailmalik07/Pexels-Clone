@@ -14,10 +14,16 @@ const Container = styled.div`
 
 export default function ListPhotos({ data }) {
     return (
-        <Container>
-            {data.map(item => (
-                <Image key={item.id} src={item.src.medium} />
-            ))}
-        </Container>
+        <>
+            <ModalPhoto />
+            <Container>
+                {data.map(item => (
+                    <Image
+                        key={item.id}
+                        src={item.src.medium}
+                    />
+                ))}
+            </Container>
+        </>
     )
 }
