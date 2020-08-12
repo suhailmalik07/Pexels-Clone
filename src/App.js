@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Homepage from './Pages/Homepage';
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
