@@ -12,9 +12,10 @@ export default function NavBar(props) {
                     height: 50,
                     background: "rgb(35, 42, 52) ",
                     padding: 5,
+                    position: "sticky",
                     display: "flex",
                     alignItems: "center",
-                    justifyContent: "space-between"
+                    justifyContent: "space-between",
                 }}
             >
                 <div

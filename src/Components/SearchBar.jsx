@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     display: flex;
-    border: 1px solid black;
+    align-items: center;
     width: max-content;
     position: relative;
     margin: auto;
@@ -11,25 +11,35 @@ const Container = styled.div`
 `
 
 const Input = styled.input`
-    height: 30px;
-    border: 0px;
+    border: 0;
     width: 100%;
     box-sizing: border-box;
+    padding: 17.5px;
+    line-height: 22px;
+    font-size: 17px;
+    font-weight: 300;
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 5px;
+
+    &:focus{
+        background-color: white;
+        outline: none;
+    }
 `
 
 const Img = styled.img`
-    position: absolute;
-    right: 0;
-    bottom: 0;
     width: 30px;
+    position: absolute;
+    right: 10px;
 `
 
 
-export default function SearchBar(props) {
+export default function SearchBar({ handleSearchChange, value, search }) {
     return (
         <Container>
-            <Input onChange={props.handleSearchChange} value={props.value} />
-            <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={props.search} />
+            <Input onChange={handleSearchChange} value={value} placeholder="Search for free photos" />
+            <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={search} />
         </Container>
     );
 }
