@@ -2,41 +2,53 @@ import React from "react";
 import PexelIcon from "./PexelIcon";
 import NavLink from "./NavLink";
 import SearchBar from "./SearchBar"
+import styled from 'styled-components';
 
-export default function NavBar(props) {
+
+const Container = styled.div`
+    border: 1px solid black;
+    background: rgb(35, 42, 52) ;
+    position: sticky;
+    top: 0;
+    padding: 0.2rem 1.5rem;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    div:first-child{
+        flex: 3;
+    }
+    div:last-child{
+        text-align: right;
+        flex: 2;
+    }
+`
+
+const IconSearchContatiner = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export default function NavBar({ handleSearch }) {
     return (
         <>
-            <div
-                style={{
-                    border: "1px solid black",
-                    height: 50,
-                    background: "rgb(35, 42, 52) ",
-                    padding: 5,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between"
-                }}
-            >
-                <div
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-evenly",
-                        width: "max-content",
-                        marginLeft:50
-                    }}
-                >
+            <Container>
+                <IconSearchContatiner>
                     <PexelIcon />
                     <NavLink name="pexel" />
-                    <SearchBar />
-                </div>
+                    <SearchBar style={{ padding: "14px 17px", }} />
+                </IconSearchContatiner>
                 <div>
-                    <NavLink name="explore" />
-                    <NavLink name="liscence" />
+                    <NavLink name="Explore" />
+                    <NavLink name="License" />
                     <NavLink name="upload" />
                 </div>
-                <div style={{marginRight:50}}></div>
-            </div>
+            </Container>
         </>
     );
 }
