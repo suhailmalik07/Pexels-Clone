@@ -21,9 +21,9 @@ export default function NavBar(props) {
                     style={{
                         display: "flex",
                         alignItems: "center",
-                        justifyContent: "space-between",
-                        width: 125,
-                        // float:"left"
+                        justifyContent: "space-evenly",
+                        width: "max-content",
+                        marginLeft:50
                     }}
                 >
                     <PexelIcon />
