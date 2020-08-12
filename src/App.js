@@ -1,12 +1,29 @@
 import React from 'react';
 import './App.css';
+import Homepage from './Pages/Homepage';
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      page: "homepage"
+    }
+  }
+
+  switchPage = () => {
+    this.setState({
+      page: this.state.page === "homepage" ? "photos" : "homepage",
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.page === "homepage" && <Homepage switchPage={this.switchPage} />}
+      </div>
+    );
+
+  }
 }
 
 export default App;
