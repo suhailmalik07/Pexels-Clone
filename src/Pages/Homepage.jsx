@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import ListPhotos from '../components/ListPhotos';
-// import Axios from '../utils/Api';
+import Axios from '../utils/Api';
 import SearchBar from '../components/SearchBar';
-import data from './dummydata.json';
 
 const Container = styled.div`
     
@@ -35,18 +34,14 @@ export default class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        // Axios.get("search?query=temperature")
-        //     .then(res => {
-        //         this.setState({
-        //             data: res.data.photos
-        //         })
-        //         console.log(res.data.photos)
-        //     })
-        //     .catch(res => console.log(res))
-
-        this.setState({
-            data: data.photos
-        })
+        Axios.get("search?query=temperature")
+            .then(res => {
+                this.setState({
+                    data: res.data.photos
+                })
+                console.log(res.data.photos)
+            })
+            .catch(res => console.log(res))
     }
 
     render() {

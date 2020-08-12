@@ -15,7 +15,7 @@ const Container = styled.div`
 export default function ListPhotos({ data }) {
     return (
         <>
-            <ModalPhoto />
+            {/* <ModalPhoto /> */}
             <Container>
                 {data.map(item => (
                     <Image

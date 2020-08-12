@@ -18,28 +18,28 @@ export default class PhotosPage extends React.Component {
     }
 
     componentDidMount() {
-        // this.loadData(this.context.query)
-        this.setState({
-            data: data.photos
-        })
+        this.loadData(this.context.query)
+        // this.setState({
+        //     data: data.photos
+        // })
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevState.query !== this.context.query) {
-    //         this.loadData(this.context.query)
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.query !== this.context.query) {
+            this.loadData(this.context.query)
+        }
+    }
 
-    // loadData = query => {
-    //     Axios.get("search?query=" + query)
-    //         .then(res => {
-    //             this.setState({
-    //                 data: res.data.photos,
-    //                 query: query
-    //             })
-    //         })
-    //         .catch(res => console.log(res))
-    // }
+    loadData = query => {
+        Axios.get("search?query=" + query)
+            .then(res => {
+                this.setState({
+                    data: res.data.photos,
+                    query: query
+                })
+            })
+            .catch(res => console.log(res))
+    }
 
     render() {
         const { data } = this.state
