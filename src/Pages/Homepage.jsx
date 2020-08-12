@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ListPhotos from '../components/ListPhotos';
 import Axios from '../utils/Api';
+import SearchBar from '../components/SearchBar';
 
 const Container = styled.div`
     
@@ -45,7 +46,7 @@ export default class Homepage extends React.Component {
                 <BackgroundImage>
                     <Content>
                         <h1>The best free stock photos & videos shared by talented creators.</h1>
-
+                        <SearchBar />
                     </Content>
                 </BackgroundImage>
 
