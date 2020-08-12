@@ -8,7 +8,7 @@ const Img = styled.img`
 export default function PexelIcon(props) {
     return (
         <Img
-            onClick={"https://www.pexels.com/"} ///givehomelink
+            // onClick={"https://www.pexels.com/"} ///givehomelink
             src="http://via.placeholder.com/50"
             alt="pexelIcon"
         />

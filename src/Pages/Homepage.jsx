@@ -36,18 +36,18 @@ export default class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get("search?query=temperature")
-            .then(res => {
-                this.setState({
-                    data: res.data.photos
-                })
-                console.log(res.data.photos)
-            })
-            .catch(res => console.log(res))
+        // Axios.get("search?query=temperature")
+        //     .then(res => {
+        //         this.setState({
+        //             data: res.data.photos
+        //         })
+        //         console.log(res.data.photos)
+        //     })
+        //     .catch(res => console.log(res))
 
-        // this.setState({
-        //     data: data.photos
-        // })
+        this.setState({
+            data: data.photos
+        })
     }
 
     render() {

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components';
+import { AppContext } from "../contexts/AppContextProvider";
 
 const Container = styled.div`
     display: flex;
@@ -35,11 +36,36 @@ const Img = styled.img`
 `
 
 
-export default function SearchBar({ handleSearchChange, value, search, style }) {
-    return (
-        <Container>
-            <Input style={style} onChange={handleSearchChange} value={value} placeholder="Search for free photos" />
-            <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={search} />
-        </Container>
-    );
+export default class SearchBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            value: ""
+        }
+    }
+
+    handleChange = e => {
+        const { value } = e.target
+        this.setState({
+            value
+        })
+    }
+
+    handleSearch = () => {
+        const { value: query } = this.state
+        this.context.handleSearch(query)
+    }
+
+    render() {
+        const { value } = this.state
+        const { style } = this.props
+        return (
+            <Container>
+                <Input style={style} onChange={this.handleChange} value={value} placeholder="Search for free photos" />
+                <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={this.handleSearch} />
+            </Container>
+        );
+    }
 }
+
+SearchBar.contextType = AppContext

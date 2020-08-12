@@ -34,7 +34,7 @@ const IconSearchContatiner = styled.div`
     justify-content: space-between;
 `
 
-export default function NavBar(props) {
+export default function NavBar({ handleSearch }) {
     return (
         <>
             <Container>

@@ -3,29 +3,21 @@ import './App.css';
 import Homepage from './Pages/Homepage';
 import PhotosPage from './Pages/PhotosPage';
 import NavBar from './components/NavBar';
+import { AppContext } from "./contexts/AppContextProvider";
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      page: "homePage"
-    }
-  }
-
-  switchPage = () => {
-    this.setState({
-      page: this.state.page === "homePage" ? "photos" : "homePage",
-    })
-  }
-
   render() {
-    const { page } = this.state
+    const { page } = this.context
     return (
       <div>
         <NavBar />
-        {page === "homePage" ? <Homepage switchPage={this.switchPage} /> : <PhotosPage />}
+        {page === "homePage" ?
+          <Homepage /> :
+          <PhotosPage />}
       </div>
     );
 
   }
 }
+
+App.contextType = AppContext
