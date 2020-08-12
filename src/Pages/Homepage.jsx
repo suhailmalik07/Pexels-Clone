@@ -2,6 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import ListPhotos from '../components/ListPhotos';
 import Axios from '../utils/Api';
+import SearchBar from '../components/SearchBar';
+import data from './dummydata.json';
+import NavBar from '../components/NavBar';
 
 const Container = styled.div`
     
@@ -33,25 +36,36 @@ export default class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get("search?query=nature")
-            .then(res => console.log(res))
-            .catch(res => console.log(res))
+        // Axios.get("search?query=temperature")
+        //     .then(res => {
+        //         this.setState({
+        //             data: res.data.photos
+        //         })
+        //         console.log(res.data.photos)
+        //     })
+        //     .catch(res => console.log(res))
+
+        this.setState({
+            data: data.photos
+        })
     }
 
     render() {
         const { data } = this.state
         return (
-            <Container>
-                <BackgroundImage>
-                    <Content>
-                        <h1>The best free stock photos & videos shared by talented creators.</h1>
+            <>
+                <Container>
+                    <BackgroundImage>
+                        <Content>
+                            <h1>The best free stock photos & videos shared by talented creators.</h1>
+                            <SearchBar />
+                        </Content>
+                    </BackgroundImage>
 
-                    </Content>
-                </BackgroundImage>
+                    <ListPhotos data={data} />
 
-                <ListPhotos data={data} />
-
-            </Container>
+                </Container>
+            </>
         );
 
     }

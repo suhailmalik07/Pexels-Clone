@@ -1,20 +1,17 @@
 import React from "react";
+import styled from 'styled-components';
 
-export default function NavLink(props) {
+const A = styled.a`
+    font-size: 20px;
+    text-decoration-line: "none";
+    color: white;
+    margin:  1rem;
+`
+
+export default function NavLink({ name, link }) {
     return (
-        <>
-            <a
-                style={{
-                    fontSize: 20,
-                    textDecorationLine: "none",
-                    color: "white",
-                    margin:  25
-                }}
-
-                href={props.link}
-            >
-                {props.name}
-            </a>
-        </>
+        <A href={link}>
+            {name}
+        </A>
     );
 }
