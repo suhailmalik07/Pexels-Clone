@@ -7,7 +7,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      page: "photosPage"
+      page: "homePage"
     }
   }
 
@@ -21,7 +21,7 @@ export default class App extends React.Component {
     const { page } = this.state
     return (
       <div>
-        {page === "homepage" ? <Homepage switchPage={this.switchPage} /> : <PhotosPage />}
+        {page === "homePage" ? <Homepage switchPage={this.switchPage} /> : <PhotosPage />}
       </div>
     );
 

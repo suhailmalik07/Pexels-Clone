@@ -35,10 +35,10 @@ const Img = styled.img`
 `
 
 
-export default function SearchBar({ handleSearchChange, value, search }) {
+export default function SearchBar({ handleSearchChange, value, search, style }) {
     return (
         <Container>
-            <Input onChange={handleSearchChange} value={value} placeholder="Search for free photos" />
+            <Input style={style} onChange={handleSearchChange} value={value} placeholder="Search for free photos" />
             <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={search} />
         </Container>
     );
