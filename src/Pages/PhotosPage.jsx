@@ -3,7 +3,6 @@ import styled from 'styled-components';
 // import ListPhotos from '../components/ListPhotos';
 import ImageSection from "../Components/ImageSection"
 import Axios from '../utils/Api';
-import data from './dummydata.json';
 import { AppContext } from '../contexts/AppContextProvider';
 import axios from "axios";
 import Tablet from '../Components/Tablet';
@@ -56,6 +55,7 @@ export default class PhotosPage extends React.Component {
                 .catch(res => console.log(res))
 
         }
+
 
     }
 

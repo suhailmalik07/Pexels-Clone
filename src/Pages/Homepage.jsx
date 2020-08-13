@@ -7,6 +7,7 @@ import SearchBar from '../Components/SearchBar';
 // import axios from "axios"
 // import data from './dummydata.json';
 
+
 const Container = styled.div`
     
 `
