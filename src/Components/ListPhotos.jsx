@@ -39,9 +39,17 @@ export default class ListPhotos extends React.Component {
         const images = this.props.data
         const len = images.length
         const size = Math.floor(len / 3)
-        const arr1 = images.slice(0, size)
-        const arr2 = images.slice(size, 2 * size)
-        const arr3 = images.slice(2 * size, 3 * size)
+
+        const arr1 = []
+        const arr2 = []
+        const arr3 = []
+        let i = 0
+
+        while (i < len) {
+            i < len && arr1.push(images[i++])
+            i < len && arr2.push(images[i++])
+            i < len && arr3.push(images[i++])
+        }
 
         const { showModal, modalData } = this.state
         return (
