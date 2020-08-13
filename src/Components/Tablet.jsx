@@ -1,9 +1,15 @@
 import React from "react";
+import styled from 'styled-components';
+
+
+const Conatainer = styled.div`
+
+`
 
 export default function Tablet(props) {
     return (
         <>
-            <div style={{ display: "inline-block", margin: 5 }}>
+            <div onClick={props.onClick} style={{ display: "inline-block", margin: 5 }}>
                 <div
                     style={{
                         display: "flex",

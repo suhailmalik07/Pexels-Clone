@@ -5,7 +5,8 @@ import ImageSection from "../Components/ImageSection"
 import Axios from '../utils/Api';
 import data from './dummydata.json';
 import { AppContext } from '../contexts/AppContextProvider';
-import axios from "axios"
+import axios from "axios";
+import Tablet from '../Components/Tablet';
 
 const Container = styled.div`
     
@@ -16,7 +17,7 @@ export default class PhotosPage extends React.Component {
         this.state = {
             data: [],
             query: "",
-            suggestions:[]
+            suggestions: []
         }
     }
 
@@ -25,46 +26,53 @@ export default class PhotosPage extends React.Component {
         this.setState({
             data: data.photos
         })
-        
+
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevState.query !== this.context.query) {
             this.loadData(this.context.query)
         }
-    
-       
     }
 
-    loadData =  query => {
-        if(query !== ""){
-            axios.get("https://api.datamuse.com/words?ml="+query)
-            .then(res => {
-                    console.log("suggestions are",res)
+    loadData = query => {
+        if (query !== "") {
+            axios.get("https://api.datamuse.com/words?ml=" + query)
+                .then(res => {
+                    console.log("suggestions are", res)
                     this.setState({
-                        suggestions: res.data.length>0?res.data.slice(0, 6):[],
+                        suggestions: res.data.length > 0 ? res.data.slice(0, 6) : [],
                         query: query
                     })
                 })
                 .catch(res => console.log(res))
-        Axios.get("search?query="+query)
-            .then(res => {
-                this.setState({
-                    data: res.data.photos,
-                    query: query
+            Axios.get("search?query=" + query)
+                .then(res => {
+                    this.setState({
+                        data: res.data.photos,
+                        query: query
+                    })
                 })
-            })
-            .catch(res => console.log(res))
-       
-                }
-       
+                .catch(res => console.log(res))
+
+        }
+
     }
 
-    render() {console.log()
-        const { data,suggestions } = this.state
+    render() {
+        const { data, suggestions } = this.state
         return (
             <Container>
-                <ImageSection data={data} suggestions={suggestions}/>
+                <div style={{ marginLeft: "15%", display: "flex", justifyContent: "space-between", width: "60%" }}>
+                    {suggestions.length && suggestions.map(ele => (
+                        <Tablet
+                            key={1}
+                            name={ele.word}
+                            onClick={() => this.context.handleSearch(ele.word)}
+                        />
+                    ))}
+                </div>
+                <ImageSection data={data} suggestions={suggestions} />
             </Container>
         );
 
