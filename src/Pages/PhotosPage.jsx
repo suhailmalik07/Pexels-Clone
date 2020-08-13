@@ -5,6 +5,7 @@ import Axios from '../utils/Api';
 import api from 'axios';
 import { AppContext } from '../Context/AppContextProvider';
 import Tablets from '../Components/Tablets';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Container = styled.div`
     
@@ -18,6 +19,7 @@ export default class PhotosPage extends React.Component {
             suggestions: [],
             query: ""
         }
+        this.page = 1
     }
 
     componentDidMount() {
@@ -50,6 +52,22 @@ export default class PhotosPage extends React.Component {
             .catch(res => console.log(res))
     }
 
+    fetchMoreData = () => {
+        Axios.get("search?query=" + this.context.query, {
+            params: {
+                page: ++this.page
+            }
+        })
+            .then(res => {
+                this.setState({
+                    data: [...this.state.data, ...res.data.photos],
+                    query: this.context.query
+                })
+            })
+            .catch(res => console.log(res))
+    }
+
+
     render() {
         const { data, suggestions } = this.state
         return (
@@ -58,6 +76,14 @@ export default class PhotosPage extends React.Component {
                 <Container>
                     <ListPhotos data={data} />
                 </Container>
+
+                {/* infinite scroll */}
+                <InfiniteScroll
+                    dataLength={this.state.data.length}
+                    next={this.fetchMoreData}
+                    hasMore={true}
+                    loader={<h4>Loading...</h4>}
+                ></InfiniteScroll>
             </>
         );
 

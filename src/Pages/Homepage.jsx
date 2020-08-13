@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ListPhotos from '../Components/ListPhotos';
 import Axios from '../utils/Api';
 import SearchBar from '../Components/SearchBar';
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Container = styled.div`
     
@@ -38,14 +39,28 @@ export default class Homepage extends React.Component {
         this.state = {
             data: []
         }
-
+        this.page = 1
     }
 
     componentDidMount() {
-        Axios.get("search?query=temperature")
+        Axios.get("search?query=nature")
             .then(res => {
                 this.setState({
                     data: res.data.photos
+                })
+            })
+            .catch(res => console.log(res))
+    }
+
+    fetchMoreData = () => {
+        Axios.get("search?query=nature", {
+            params: {
+                page: ++this.page
+            }
+        })
+            .then(res => {
+                this.setState({
+                    data: [...this.state.data, ...res.data.photos],
                 })
             })
             .catch(res => console.log(res))
@@ -64,6 +79,14 @@ export default class Homepage extends React.Component {
                     </BackgroundImage>
 
                     <ListPhotos data={data} />
+
+                    {/* infinite scroll */}
+                    <InfiniteScroll
+                        dataLength={this.state.data.length}
+                        next={this.fetchMoreData}
+                        hasMore={true}
+                        loader={<h4>Loading...</h4>}
+                    ></InfiniteScroll>
 
                 </Container>
             </>
