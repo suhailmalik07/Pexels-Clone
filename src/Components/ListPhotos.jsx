@@ -38,7 +38,6 @@ export default class ListPhotos extends React.Component {
     render() {
         const images = this.props.data
         const len = images.length
-        const size = Math.floor(len / 3)
 
         const arr1 = []
         const arr2 = []
