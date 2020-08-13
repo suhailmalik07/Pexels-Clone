@@ -3,6 +3,7 @@ import PexelIcon from "./PexelIcon";
 import NavLink from "./NavLink";
 import SearchBar from "./SearchBar"
 import styled from 'styled-components';
+import { AppContext } from '../Context/AppContextProvider';
 
 
 const Container = styled.div`
@@ -37,8 +38,16 @@ export default function NavBar({ handleSearch }) {
         <>
             <Container>
                 <IconSearchContatiner>
-                    <PexelIcon />
-                    <NavLink name="Pexel" style={{ fontWeight: 600, fontSize: "19px" }} />
+
+                    <AppContext.Consumer>
+                        {({ switchPage }) => (
+                            <>
+                                <PexelIcon onClick={() => switchPage("homePage")} />
+                                <NavLink onClick={() => switchPage("homePage")} name="Pexel" style={{ fontWeight: 600, fontSize: "19px" }} />
+                            </>
+                        )}
+                    </AppContext.Consumer>
+
                     <SearchBar style={{ padding: "14px 17px", marginLeft: "1rem" }} />
                 </IconSearchContatiner>
                 <div style={{ marginLeft: "1rem" }}>

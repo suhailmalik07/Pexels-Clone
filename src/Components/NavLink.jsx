@@ -9,9 +9,9 @@ const A = styled.a`
     cursor: pointer;
 `
 
-export default function NavLink({ name, link, style }) {
+export default function NavLink({ name, link, style, onClick }) {
     return (
-        <A href={link} style={style}>
+        <A onClick={onClick} style={style}>
             {name}
         </A>
     );

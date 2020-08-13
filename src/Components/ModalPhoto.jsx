@@ -56,7 +56,6 @@ const Author = styled.p`
 `
 
 export default function Modal({ show, item, close }) {
-    console.log(show)
     if (!show) {
         return null
     }

@@ -8,7 +8,7 @@ import Tablets from '../Components/Tablets';
 import InfiniteScroll from "react-infinite-scroll-component";
 
 const Container = styled.div`
-    
+    padding: 1rem;
 `
 
 export default class PhotosPage extends React.Component {
@@ -35,7 +35,6 @@ export default class PhotosPage extends React.Component {
     loadData = query => {
         api.get("https://api.datamuse.com/words?ml=" + query)
             .then(res => {
-                console.log("suggestions are", res)
                 this.setState({
                     suggestions: res.data.length > 0 ? res.data.slice(0, 6) : [],
                     query: query
@@ -71,11 +70,9 @@ export default class PhotosPage extends React.Component {
     render() {
         const { data, suggestions } = this.state
         return (
-            <>
+            <Container>
                 <Tablets suggestions={suggestions} />
-                <Container>
-                    <ListPhotos data={data} />
-                </Container>
+                <ListPhotos data={data} />
 
                 {/* infinite scroll */}
                 <InfiniteScroll
@@ -84,7 +81,7 @@ export default class PhotosPage extends React.Component {
                     hasMore={true}
                     loader={<h4>Loading...</h4>}
                 ></InfiniteScroll>
-            </>
+            </Container>
         );
 
     }

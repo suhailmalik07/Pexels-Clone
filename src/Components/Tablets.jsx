@@ -1,11 +1,12 @@
 import React from "react";
 import styled from 'styled-components';
 import { AppContext } from '../Context/AppContextProvider';
+import { v4 as uuidv4 } from 'uuid';
 
 
 const Container = styled.div`
     display: flex;
-    margin: 1rem 2rem;
+    margin: 1rem 10px;
 `
 
 const TabletWrapper = styled.div`
@@ -37,7 +38,7 @@ export default function Tablets({ suggestions }) {
             <AppContext.Consumer>
                 {({ handleSearch }) => (
                     suggestions.map(item => (
-                        <Tablet name={item.word} onClick={() => handleSearch(item.word)} />
+                        <Tablet key={uuidv4()} name={item.word} onClick={() => handleSearch(item.word)} />
                     ))
                 )}
             </AppContext.Consumer>

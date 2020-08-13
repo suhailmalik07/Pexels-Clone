@@ -78,7 +78,9 @@ export default class Homepage extends React.Component {
                         </Content>
                     </BackgroundImage>
 
-                    <ListPhotos data={data} />
+                    <div style={{margin: "0 1rem"}}>
+                        <ListPhotos data={data} />
+                    </div>
 
                     {/* infinite scroll */}
                     <InfiniteScroll

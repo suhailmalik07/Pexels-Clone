@@ -13,9 +13,9 @@ export default class AppContextProvider extends React.Component {
         }
     }
 
-    switchPage = () => {
+    switchPage = page => {
         this.setState({
-            page: this.state.page === "homePage" ? "photos" : "homePage",
+            page: page ? page : this.state.page === "homePage" ? "photos" : "homePage",
         })
     }
 

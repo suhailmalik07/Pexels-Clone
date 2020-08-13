@@ -2,17 +2,16 @@ import React from "react";
 import Image from "./Image";
 import styled from "styled-components";
 import ModalPhoto from './ModalPhoto';
+import { v4 as uuidv4 } from 'uuid';
 
 const Container = styled.div`
-    width: 90%;
     display: flex;
     justify-content: space-between;
-    margin-left: 5%;
 `
 
 const SubContainer = styled.div`
-    width: 33%;
-    margin: 10px;
+    flex: 1;
+    margin: 5px;
 `
 
 export default class ListPhotos extends React.Component {
@@ -32,7 +31,7 @@ export default class ListPhotos extends React.Component {
     }
 
     getPhotosList = arr => {
-        return arr.length && arr.map(item => <Image key={item.id} onClick={() => this.switchModalStatus(item)} item={item} />)
+        return arr.length && arr.map(item => <Image key={uuidv4()} onClick={() => this.switchModalStatus(item)} item={item} />)
     }
 
     render() {
