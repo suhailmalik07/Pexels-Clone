@@ -5,6 +5,7 @@ import Axios from '../utils/Api';
 import api from 'axios';
 import { AppContext } from '../Context/AppContextProvider';
 import Tablets from '../Components/Tablets';
+import OptionBar from "../Components/OptionBar"
 
 const Container = styled.div`
     
@@ -54,6 +55,7 @@ export default class PhotosPage extends React.Component {
         const { data, suggestions } = this.state
         return (
             <>
+                <OptionBar />
                 <Tablets suggestions={suggestions} />
                 <Container>
                     <ListPhotos data={data} />

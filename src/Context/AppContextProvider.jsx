@@ -9,7 +9,9 @@ export default class AppContextProvider extends React.Component {
         super(props)
         this.state = {
             page: "homePage",
-            query: ""
+            query: "",
+            option:"medium",
+            filter:false
         }
     }
 
@@ -26,9 +28,15 @@ export default class AppContextProvider extends React.Component {
         })
     }
 
+    handleFilter = (option) => {
+        this.setState({
+            option:option
+        })
+        alert("filtering by "+option)
+    }
     render() {
-        const { page, query } = this.state
-        const value = { page, query, switchPage: this.switchPage, handleSearch: this.handleSearch }
+        const { page, query,filter,option } = this.state
+        const value = { page, query,option, switchPage: this.switchPage, handleSearch: this.handleSearch,handleFilter:this.handleFilter }
         return (
             <AppContext.Provider value={value}>
                 {this.props.children}

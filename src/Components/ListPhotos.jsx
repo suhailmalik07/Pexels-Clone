@@ -2,6 +2,7 @@ import React from "react";
 import Image from "./Image";
 import { v4 as uuidv4 } from "uuid";
 import styled from "styled-components";
+import {AppContext} from "../Context/AppContextProvider"
 
 const Conatiner = styled.div`
   width: 90%;
@@ -21,6 +22,8 @@ export default class ImagesSection extends React.Component {
         this.state = {};
     }
     getImages(arr) {
+        let {option} = this.context
+        console.log()
         return (
             arr.length > 0 &&
             arr.map((image) => {
@@ -30,7 +33,7 @@ export default class ImagesSection extends React.Component {
                             <Image
                                 height={image.height}
                                 width={image.width}
-                                src={image.src.medium}
+                                src={image.src[option]}
                             />
                         }
                     </div>
@@ -57,3 +60,5 @@ export default class ImagesSection extends React.Component {
         );
     }
 }
+
+ImagesSection.contextType = AppContext
