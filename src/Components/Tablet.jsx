@@ -1,9 +1,15 @@
 import React from "react";
+import styled from 'styled-components';
+
+
+const Conatainer = styled.div`
+
+`
 
 export default function Tablet(props) {
     return (
         <>
-            <div style={{ display: "inline-block", margin: 5 }}>
+            <div onClick={props.onClick} style={{ display: "inline-block", margin: 5 }}>
                 <div
                     style={{
                         display: "flex",
@@ -17,7 +23,8 @@ export default function Tablet(props) {
                 >
                     <div>
                         <img
-                            src={props.url}
+                            // src={props.url}
+                            src={"http://via.placeholder.com/30"}
                             style={{ width: 30, borderRadius: 25 }}
                             alt="tabImg"
                         />

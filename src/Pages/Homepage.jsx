@@ -1,8 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import ListPhotos from '../components/ListPhotos';
+// import ListPhotos from '../components/ListPhotos';
+import ImageSection from "../Components/ImageSection"
 import Axios from '../utils/Api';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../Components/SearchBar';
+// import axios from "axios"
+// import data from './dummydata.json';
+
 
 const Container = styled.div`
     
@@ -28,7 +32,7 @@ export default class Homepage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: [],
         }
 
     }
@@ -39,12 +43,27 @@ export default class Homepage extends React.Component {
                 this.setState({
                     data: res.data.photos
                 })
+                console.log(res.data.photos)
             })
             .catch(res => console.log(res))
+
+        // axios.get("https://api.datamuse.com/words?ml=sun")
+        //     .then(res => {
+        //         this.setState({
+        //             suggestions: res.slice(0,11)
+        //         })
+        //         // console.log(res.data.photos)
+        //     })
+        //     .catch(res => console.log(res))
+
+        // // this.setState({
+        // //     data: data.photos
+        // // })
     }
 
     render() {
         const { data } = this.state
+        console.log("in home page",this.state)
         return (
             <>
                 <Container>
@@ -55,7 +74,7 @@ export default class Homepage extends React.Component {
                         </Content>
                     </BackgroundImage>
 
-                    <ListPhotos data={data} />
+                    <ImageSection data={data} suggestions={[]} />
 
                 </Container>
             </>

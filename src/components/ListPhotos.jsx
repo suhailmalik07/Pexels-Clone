@@ -1,6 +1,7 @@
 import React from 'react';
-import Image from './Image';
+import Image from '../Components/Image';
 import styled from 'styled-components';
+import ModalPhoto from '../Components/ModalPhoto'
 
 
 const Container = styled.div`
