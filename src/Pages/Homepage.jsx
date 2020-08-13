@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import ListPhotos from '../components/ListPhotos';
-// import Axios from '../utils/Api';
-import SearchBar from '../components/SearchBar';
-import data from './dummydata.json';
+// import ListPhotos from '../components/ListPhotos';
+import ImageSection from "../Components/ImageSection"
+import Axios from '../utils/Api';
+import SearchBar from '../Components/SearchBar';
+// import axios from "axios"
+// import data from './dummydata.json';
 
 const Container = styled.div`
     
@@ -29,28 +31,38 @@ export default class Homepage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: [],
         }
 
     }
 
     componentDidMount() {
-        // Axios.get("search?query=temperature")
+        Axios.get("search?query=temperature")
+            .then(res => {
+                this.setState({
+                    data: res.data.photos
+                })
+                console.log(res.data.photos)
+            })
+            .catch(res => console.log(res))
+
+        // axios.get("https://api.datamuse.com/words?ml=sun")
         //     .then(res => {
         //         this.setState({
-        //             data: res.data.photos
+        //             suggestions: res.slice(0,11)
         //         })
-        //         console.log(res.data.photos)
+        //         // console.log(res.data.photos)
         //     })
         //     .catch(res => console.log(res))
 
-        this.setState({
-            data: data.photos
-        })
+        // // this.setState({
+        // //     data: data.photos
+        // // })
     }
 
     render() {
         const { data } = this.state
+        console.log("in home page",this.state)
         return (
             <>
                 <Container>
@@ -61,7 +73,7 @@ export default class Homepage extends React.Component {
                         </Content>
                     </BackgroundImage>
 
-                    <ListPhotos data={data} />
+                    <ImageSection data={data} suggestions={[]} />
 
                 </Container>
             </>

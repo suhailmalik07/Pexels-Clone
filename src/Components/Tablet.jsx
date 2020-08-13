@@ -17,7 +17,8 @@ export default function Tablet(props) {
                 >
                     <div>
                         <img
-                            src={props.url}
+                            // src={props.url}
+                            src={"http://via.placeholder.com/30"}
                             style={{ width: 30, borderRadius: 25 }}
                             alt="tabImg"
                         />

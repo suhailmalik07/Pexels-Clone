@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Homepage from './Pages/Homepage';
 import PhotosPage from './Pages/PhotosPage';
-import NavBar from './components/NavBar';
+import NavBar from './Components/NavBar';
 import { AppContext } from "./contexts/AppContextProvider";
 
 export default class App extends React.Component {
