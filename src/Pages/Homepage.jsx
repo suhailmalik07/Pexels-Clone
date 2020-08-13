@@ -39,7 +39,6 @@ export default class Homepage extends React.Component {
                 this.setState({
                     data: res.data.photos
                 })
-                console.log(res.data.photos)
             })
             .catch(res => console.log(res))
     }

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import ListPhotos from '../components/ListPhotos';
 import Axios from '../utils/Api';
-import data from './dummydata.json';
 import { AppContext } from '../contexts/AppContextProvider';
 
 const Container = styled.div`

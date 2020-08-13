@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Homepage from './Pages/Homepage';
-import PhotosPage from './Pages/PhotosPage';
+import Homepage from './pages/Homepage';
+import PhotosPage from './pages/PhotosPage';
 import NavBar from './components/NavBar';
 import { AppContext } from "./contexts/AppContextProvider";
 

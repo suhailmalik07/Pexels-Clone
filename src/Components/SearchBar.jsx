@@ -59,7 +59,7 @@ export default class SearchBar extends React.Component {
         const { style } = this.props
         return (
             <Container>
-                <Input style={style} onChange={this.handleChange} value={value} placeholder="Search for free photos" />
+                <Input style={style} onChange={this.handleChange} onKeyUp={e => e.keyCode === 13 ? this.handleSearch() : null} value={value} placeholder="Search for free photos" />
                 <Img src={"https://static.thenounproject.com/png/875358-200.png"} alt="searchIcon" onClick={this.handleSearch} />
             </Container>
         );
