@@ -24,10 +24,6 @@ const Container = styled.div`
     div:first-child{
         flex: 1;
     }
-    /* div:last-child{
-        text-align: right;
-        flex: 2;
-    } */
 `
 
 const IconSearchContatiner = styled.div`
@@ -45,7 +41,7 @@ export default function NavBar({ handleSearch }) {
                     <NavLink name="Pexel" style={{ fontWeight: 600, fontSize: "19px" }} />
                     <SearchBar style={{ padding: "14px 17px", marginLeft: "1rem" }} />
                 </IconSearchContatiner>
-                <div style={{marginLeft: "1rem"}}>
+                <div style={{ marginLeft: "1rem" }}>
                     <NavLink name="Explore" />
                     <NavLink name="License" />
                     <NavLink name="Upload" />

@@ -4,12 +4,12 @@ import ListPhotos from '../Components/ListPhotos';
 import Axios from '../utils/Api';
 import api from 'axios';
 import { AppContext } from '../Context/AppContextProvider';
-import Tablet from '../Components/Tablet';
-import { uuid } from "uuidv4";
+import Tablets from '../Components/Tablets';
 
 const Container = styled.div`
     
 `
+
 export default class PhotosPage extends React.Component {
     constructor(props) {
         super(props)
@@ -54,9 +54,7 @@ export default class PhotosPage extends React.Component {
         const { data, suggestions } = this.state
         return (
             <>
-                <div style={{ marginLeft: "15%", display: "flex", justifyContent: "space-between", width: "60%" }}>
-                    {suggestions.length && suggestions.map(ele => { return <Tablet key={uuid()} name={ele.word} /> })}
-                </div>
+                <Tablets suggestions={suggestions} />
                 <Container>
                     <ListPhotos data={data} />
                 </Container>
