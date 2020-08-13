@@ -1,12 +1,10 @@
 import React from "react";
 
-export default function Image(props) {
-    console.log("in image", props.height, props.width);
+export default function Image({ item, onClick }) {
+    const { medium } = item.src
     return (
-        <>
-            <div style={{ margin: 5 }}>
-                <img src={props.src} alt="pic" style={{ width: "100%" }} />
-            </div>
-        </>
+        <div onClick={onClick} style={{ margin: 5 }}>
+            <img src={medium} alt="pic" style={{ width: "100%" }} />
+        </div>
     );
 }
