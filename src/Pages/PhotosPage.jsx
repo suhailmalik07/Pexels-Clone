@@ -18,9 +18,6 @@ export default class PhotosPage extends React.Component {
 
     componentDidMount() {
         this.loadData(this.context.query)
-        // this.setState({
-        //     data: data.photos
-        // })
     }
 
     componentDidUpdate(prevProps, prevState) {

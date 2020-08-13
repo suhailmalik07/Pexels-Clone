@@ -5,6 +5,6 @@ const Img = styled.img`
 
 `
 
-export default function Image({ src, alt }) {
-    return <Img src={src} alt={alt || "nature.png"} />
+export default function Image({ src, alt, onClick }) {
+    return <Img src={src} onClick={onClick} alt={alt || "nature.png"} />
 } 
