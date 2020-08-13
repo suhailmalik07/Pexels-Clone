@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import ListPhotos from '../components/ListPhotos';
+import ListPhotos from '../Components/ListPhotos';
 import Axios from '../utils/Api';
-import SearchBar from '../components/SearchBar';
+import SearchBar from '../Components/SearchBar';
 
 const Container = styled.div`
     

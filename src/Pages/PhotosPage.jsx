@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import ListPhotos from '../components/ListPhotos';
+import ListPhotos from '../Components/ListPhotos';
 import Axios from '../utils/Api';
-import { AppContext } from '../contexts/AppContextProvider';
+import api from 'axios';
+import { AppContext } from '../Context/AppContextProvider';
+import Tablet from '../Components/Tablet';
+import { uuid } from "uuidv4";
 
 const Container = styled.div`
     
@@ -12,6 +15,7 @@ export default class PhotosPage extends React.Component {
         super(props)
         this.state = {
             data: [],
+            suggestions: [],
             query: ""
         }
     }
@@ -27,6 +31,15 @@ export default class PhotosPage extends React.Component {
     }
 
     loadData = query => {
+        api.get("https://api.datamuse.com/words?ml=" + query)
+            .then(res => {
+                console.log("suggestions are", res)
+                this.setState({
+                    suggestions: res.data.length > 0 ? res.data.slice(0, 6) : [],
+                    query: query
+                })
+            })
+            .catch(res => console.log(res))
         Axios.get("search?query=" + query)
             .then(res => {
                 this.setState({
@@ -38,11 +51,16 @@ export default class PhotosPage extends React.Component {
     }
 
     render() {
-        const { data } = this.state
+        const { data, suggestions } = this.state
         return (
-            <Container>
-                <ListPhotos data={data} />
-            </Container>
+            <>
+                <div style={{ marginLeft: "15%", display: "flex", justifyContent: "space-between", width: "60%" }}>
+                    {suggestions.length && suggestions.map(ele => { return <Tablet key={uuid()} name={ele.word} /> })}
+                </div>
+                <Container>
+                    <ListPhotos data={data} />
+                </Container>
+            </>
         );
 
     }

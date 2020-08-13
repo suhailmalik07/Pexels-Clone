@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import Homepage from './pages/Homepage';
-import PhotosPage from './pages/PhotosPage';
-import NavBar from './components/NavBar';
-import { AppContext } from "./contexts/AppContextProvider";
+import Homepage from './Pages/Homepage';
+import PhotosPage from './Pages/PhotosPage';
+import NavBar from './Components/NavBar';
+import { AppContext } from "./Context/AppContextProvider";
 
 export default class App extends React.Component {
   render() {
