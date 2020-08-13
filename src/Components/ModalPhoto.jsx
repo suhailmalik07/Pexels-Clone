@@ -48,6 +48,11 @@ const Author = styled.p`
     font-size: 20px;
     font-weight: 700;
     margin: 0;
+
+    &:before{
+        content: "Author: ";
+        color: #555;
+    }
 `
 
 export default function Modal({ show, item, close }) {
@@ -56,7 +61,7 @@ export default function Modal({ show, item, close }) {
         return null
     }
 
-    const { photographer, photographer_url, src: { large } } = item
+    const { photographer, src: { large } } = item
     return (
         <ModalWrapper>
             <Card>

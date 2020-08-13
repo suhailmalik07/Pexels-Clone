@@ -19,9 +19,17 @@ const BackgroundImage = styled.div`
 `
 
 const Content = styled.div`
-    width: 40%;
+    width: 50%;
     margin: auto;
     color: white;
+
+    @media all and (max-width:900px){
+        width: 70%;
+    }
+    @media all and (max-width: 600px){
+        width: 100%;
+        margin: 1rem;
+    }
 `
 
 export default class Homepage extends React.Component {
