@@ -1,5 +1,5 @@
 import Axios from "axios";
-require('dotenv').config()
+// require('dotenv').config()
 
 
 export default Axios.create({
