@@ -1,6 +1,6 @@
 # Pexels App Clone
 
-This clone is made by [me](https://github.com/suhailmalik07) and my teammate [saiNihal](https://github.com/sainihal) as a evaluation project.
+This clone is made by [me](https://github.com/suhailmalik07) and my teammate [SaiNihal](https://github.com/sainihal) as a evaluation project.
 
 
 ## About product
